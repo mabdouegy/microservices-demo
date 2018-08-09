@@ -1,0 +1,130 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.springframework.samples.service.service</groupId>
+    <artifactId>microservices-demo</artifactId>
+    <version>1.2.0.RELEASE</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <!-- Stand-alone RESTFul application for testing only -->
+        <start-class>com.mohamedomar.codechallenge.microservices.users.server.UsersMicroServiceServer</start-class>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.10.RELEASE</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <!-- Setup Spring Boot -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <!-- Setup Spring MVC & REST, use Embedded Tomcat -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <!-- Setup Spring Data common components -->
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons</artifactId>
+        </dependency>
+
+        <dependency>
+            <!-- Testing starter -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <dependency>
+            <!-- Setup Spring Data JPA Repository support -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <!-- In-memory database for testing/demos -->
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+        </dependency>
+        
+  	   <!-- Spring fox dependencies -->
+       <dependency>
+       <groupId>io.springfox</groupId>
+       <artifactId>springfox-swagger2</artifactId><version>2.6.1</version><scope>compile</scope></dependency>
+       <dependency>
+       <groupId>io.springfox
+       </groupId>
+       <artifactId>springfox-swagger-ui</artifactId>
+       <version>2.6.1</version>
+       <scope>compile</scope>
+       </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+			<plugin>
+			    <groupId>org.jacoco</groupId>
+			    <artifactId>jacoco-maven-plugin</artifactId>
+			    <version>0.7.5.201505241946</version>
+			    <executions>
+			        <!--
+			            Prepares the property pointing to the JaCoCo runtime agent which
+			            is passed as VM argument when Maven the Surefire plugin is executed.
+			        -->
+			        <execution>
+			            <id>pre-unit-test</id>
+			            <goals>
+			                <goal>prepare-agent</goal>
+			            </goals>
+			            <configuration>
+			                <!-- Sets the path to the file which contains the execution data. -->
+			                <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
+			                <!--
+			                    Sets the name of the property containing the settings
+			                    for JaCoCo runtime agent.
+			                -->
+			                <propertyName>surefireArgLine</propertyName>
+			            </configuration>
+			        </execution>
+			        <!--
+			            Ensures that the code coverage report for unit tests is created after
+			            unit tests have been run.
+			        -->
+			        <execution>
+			            <id>post-unit-test</id>
+			            <phase>test</phase>
+			            <goals>
+			                <goal>report</goal>
+			            </goals>
+			            <configuration>
+			                <!-- Sets the path to the file which contains the execution data. -->
+			                <dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
+			                <!-- Sets the output directory for the code coverage report. -->
+			                <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+			            </configuration>
+			        </execution>
+			    </executions>
+			</plugin>
+        </plugins>
+    </build>
+</project>

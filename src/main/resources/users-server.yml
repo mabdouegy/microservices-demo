@@ -1,0 +1,15 @@
+# Spring properties
+spring:
+  application:
+     name: users-service  # Service registers under this name
+
+# HTTP Server
+server.contextPath: /codechallenge
+server.port: 2222   # HTTP (Tomcat) port
+
+# Enable actuator access without security checks - DEVELOPEMENT ONLY
+management.security.enabled: false
+      
+
+
+
