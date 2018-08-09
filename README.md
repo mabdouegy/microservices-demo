@@ -13,14 +13,14 @@ Clone it and either load into your favorite IDE or use maven to build it from co
 ## Usage  
 
 
-### testing and exploring the user micro service end point
+# testing and exploring the user micro service end point
 
   Hit the following swagger URL:[http://localhost:2222/codechallenge/swagger-ui.html#/user-controller] to explore and test
   the user mirco service operations.
   
   In real life, a JS based single page app. or Java/node back end consumer should be developed and pushed to an independent repo. 
   
-###in scope , done
+#in scope , done
   . basic functionality.
   . 85%+ key classes code(services, controllers) covered by unit tests. No need to write tests for repository since 
     it only inherits Spring data.
@@ -30,7 +30,7 @@ Clone it and either load into your favorite IDE or use maven to build it from co
   . basic database scripts that can be used when migrating to a persistent database.
   . basic build using maven.
 
-###in scope , Work in progress
+#in scope , Work in progress
   . Finish remaining unit tests
   . In a real application central exception handling should be managed by HandlerExceptionResolver.
   . input validation(via @BeanValidation).
@@ -42,7 +42,7 @@ Clone it and either load into your favorite IDE or use maven to build it from co
   . Dockerize the project and upload it on docker registry.
   . Create a Docker file to spin new instances upon need(beware of JVM parameters and c groups awareness).
 
-###out of scope
+#out of scope
   . impodomdent patch for parial updates of entities(using etags)
   . Pagination and other performance enhancement techniques.
   . White and black listing at query level, other security concerns.
