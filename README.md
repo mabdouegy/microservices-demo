@@ -1,16 +1,14 @@
 # Microservices-demo
 
-Micro services demo application based on Paul Chapman blog [Microservices Blog] (https://spring.io/blog/2015/07/14/microservices-with-spring) on spring.io website.
+Micro services demo application based on Paul Chapman blog (https://spring.io/blog/2015/07/14/microservices-with-spring) on spring.io website.
 
-The demo is created using Spring boot, Spring data(wraps JPA and hibernate), Spring fox, , Junit and Mockito.
+The demo is created using Spring boot, Spring data(wraps JPA and hibernate), Spring fox,Junit and Mockito.
 
 It exposes "Users" micro service, through a swagger UI, provides insert new and delete users and query them by email or name.
 
 For demo purposes, an in memory H2 database had been used. No vault secrets had been used to secure credentials.
 
-Clone it and either load into your favorite IDE or use maven to build it from command line.
- 
-## Usage  
+Clone it and either load into your favorite IDE or use maven to build it from command line.  
 
 
 # testing and exploring the user micro service end point
